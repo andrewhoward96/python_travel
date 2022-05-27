@@ -1,0 +1,28 @@
+PRAGMA FOREIGN_KEYS = ON;
+
+DROP TABLE visits;
+DROP TABLE users;
+DROP TABLE locations;
+
+CREATE TABLE users (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  name VARCHAR
+);
+
+CREATE TABLE locations (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  category VARCHAR,
+  name VARCHAR
+);
+
+
+CREATE TABLE visits (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  user_id INTEGER NOT NULL,
+  location_id INTEGER NOT NULL,
+  review TEXT,
+    FOREIGN KEY (user_id)
+      REFERENCES users(id) ON DELETE CASCADE,
+    FOREIGN KEY (location_id)
+      REFERENCES locations(id) ON DELETE CASCADE
+);
