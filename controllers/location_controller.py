@@ -13,5 +13,5 @@ def locations():
 @locations_blueprint.route("/locations/<id>")
 def show(id):
     location = location_repository.select(id)
-    users= location_repository.users(location)
-    return render_template("locations/show.html", location=location, users=users)
+    travelers= location_repository.travelers(location)
+    return render_template("locations/show.html", location=location, travelers=travelers)

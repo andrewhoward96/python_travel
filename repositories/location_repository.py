@@ -1,6 +1,6 @@
 from db.run_sql import run_sql
 from models.location import Location
-from models.user import User
+from models.traveler import Traveler
 
 def save(location):
     sql = "INSERT INTO locations(name, category) VALUES ( ?, ? ) RETURNING id"

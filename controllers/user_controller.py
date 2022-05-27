@@ -1,16 +1,16 @@
 from flask import Flask, render_template, request, redirect
 from flask import Blueprint
-from models.user import User
-import repositories.user_repository as user_repository
+from models.traveler import Traveler
+import repositories.traveler_repository as traveler_repository
 
-users_blueprint = Blueprint("users", __name__)
-@users_blueprint.route("/users")
-def users():
-    users = user_repository.select_all() # NEW
-    return render_template("users/index.html", users = users)
+travelers_blueprint = Blueprint("travelers", __name__)
+@travelers_blueprint.route("/travelers")
+def travelers():
+    travelers = traveler_repository.select_all() # NEW
+    return render_template("travelers/index.html", travelers = travelers)
 
-@users_blueprint.route("/users/<id>")
+@travelers_blueprint.route("/travelers/<id>")
 def show(id):
-    user = user_repository.select(id)
-    locations = user_repository.locations(user)
-    return render_template("users/show.html", user=user, locations=locations)
+    traveler = traveler_repository.select(id)
+    locations = traveler_repository.locations(travelers)
+    return render_template("travelers/show.html", travelers=travelers, locations=locations)

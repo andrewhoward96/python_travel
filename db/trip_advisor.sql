@@ -1,10 +1,10 @@
 PRAGMA FOREIGN_KEYS = ON;
 
 DROP TABLE visits;
-DROP TABLE users;
+DROP TABLE travelers;
 DROP TABLE locations;
 
-CREATE TABLE users (
+CREATE TABLE travelers (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
   name VARCHAR
 );
@@ -18,11 +18,11 @@ CREATE TABLE locations (
 
 CREATE TABLE visits (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
-  user_id INTEGER NOT NULL,
+  traveler_id INTEGER NOT NULL,
   location_id INTEGER NOT NULL,
   review TEXT,
-    FOREIGN KEY (user_id)
-      REFERENCES users(id) ON DELETE CASCADE,
+    FOREIGN KEY (traveler_id)
+      REFERENCES travelers(id) ON DELETE CASCADE,
     FOREIGN KEY (location_id)
       REFERENCES locations(id) ON DELETE CASCADE
 );
