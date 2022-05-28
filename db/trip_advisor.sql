@@ -2,14 +2,14 @@ PRAGMA FOREIGN_KEYS = ON;
 
 DROP TABLE visits;
 DROP TABLE travelers;
-DROP TABLE locations;
+DROP TABLE countries;
 
 CREATE TABLE travelers (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
   name VARCHAR
 );
 
-CREATE TABLE locations (
+CREATE TABLE countries (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
   category VARCHAR,
   name VARCHAR
@@ -19,10 +19,10 @@ CREATE TABLE locations (
 CREATE TABLE visits (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
   traveler_id INTEGER NOT NULL,
-  location_id INTEGER NOT NULL,
+  country_id INTEGER NOT NULL,
   review TEXT,
     FOREIGN KEY (traveler_id)
       REFERENCES travelers(id) ON DELETE CASCADE,
-    FOREIGN KEY (location_id)
-      REFERENCES locations(id) ON DELETE CASCADE
+    FOREIGN KEY (country_id)
+      REFERENCES countries(id) ON DELETE CASCADE
 );

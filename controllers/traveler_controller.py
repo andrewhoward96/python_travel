@@ -6,11 +6,11 @@ import repositories.traveler_repository as traveler_repository
 travelers_blueprint = Blueprint("travelers", __name__)
 @travelers_blueprint.route("/travelers")
 def travelers():
-    travelers = traveler_repository.select_all() # NEW
+    travelers = traveler_repository.select_all() 
     return render_template("travelers/index.html", travelers = travelers)
 
 @travelers_blueprint.route("/travelers/<id>")
 def show(id):
     traveler = traveler_repository.select(id)
-    locations = traveler_repository.locations(travelers)
-    return render_template("travelers/show.html", travelers=travelers, locations=locations)
+    locations = traveler_repository.locations(traveler)
+    return render_template("travelers/show.html", traveler=traveler, locations=locations)

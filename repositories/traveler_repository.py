@@ -1,5 +1,5 @@
 from db.run_sql import run_sql
-from models.location import Location
+from models.country import Country
 from models.traveler import Traveler
 
 def save(traveler):

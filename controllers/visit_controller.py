@@ -3,7 +3,7 @@ from flask import Blueprint
 from models.visit import Visit
 import repositories.visit_repository as visit_repository
 import repositories.traveler_repository as traveler_repository
-import repositories.location_repository as location_repository
+import repositories.country_repository as country_repository
 
 visits_blueprint = Blueprint("visits", __name__)
 
@@ -15,5 +15,5 @@ def visits():
 @visits_blueprint.route("/visits/new", methods=["GET"])
 def new_visit():
     travelers = traveler_repository.select_all()
-    locations = location_repository.select_all()
-    return render_template("visit_form.html", travelers=travelers, locations=locations)
+    countrys = country_repository.select_all()
+    return render_template("visit_form.html", travelers=travelers, countries=countries)

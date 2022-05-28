@@ -1,4 +1,4 @@
-class Location:
+class Country:
     
     def __init__(self, name, category, id = None):
         self.name = name

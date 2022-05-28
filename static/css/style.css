@@ -1,9 +1,21 @@
+
+
 body {
     background: url('/static/imgs/background.jpeg');
     background-size: cover;
     background-repeat: no-repeat;
-    color: #F6F4F3;
+    color: black;
     font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
     padding: 0px;
-    margin: 0px;
+    list-style: none;
+    
 }
+    
+
+
+    #ds {
+        
+    color: orange;
+};
+
+
