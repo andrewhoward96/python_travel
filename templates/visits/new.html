@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1> {{visit.name}} </h1>
+
+<p>Category: {{ visit.category }}</p>
+
+<h3>Visited by:</h3>
+<ul>
+{% for traveler in travelers %}
+<li>{{traveler.name}}</li>
+{% endfor %}
+</ul>
+{% endblock %}

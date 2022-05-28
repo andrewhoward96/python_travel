@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>visits</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+  
+  </tr>
+  {% for visit in visits %}
+  <tr>
+    <td><a href="/visits/{{ visits.id }}"> {{visits.name}} </a></td>
+  </tr>
+  {% endfor %}
+</table>
+{% endblock %}

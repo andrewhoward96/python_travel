@@ -8,3 +8,19 @@ def save(traveler):
     results = run_sql( sql, values )
     traveler.id = results[0]['id']
     return traveler
+
+def select_all():
+    travelers = []
+
+    sql = "SELECT * FROM traveler"
+    results = run_sql(sql)
+    
+    for row in results:
+        traveler = Traveler(row['name'], row['category'], row['id'])
+        travelers.append(traveler)
+    return travelers
+
+
+
+
+

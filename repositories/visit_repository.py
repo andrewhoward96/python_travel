@@ -1,3 +1,4 @@
+
 from db.run_sql import run_sql
 from models.visit import Visit
 import repositories.traveler_repository as traveler_repository
@@ -11,3 +12,14 @@ def save(visit):
     results = run_sql( sql, values )
     visit.id = results[0]['id']
     return visit
+
+def select_all():
+    visits = []
+
+    sql = "SELECT * FROM visit"
+    results = run_sql(sql)
+
+    for row in results:
+        visit = Visit(row['name'], row['category'], row['id'])
+        visits.append(visit)
+    return visits

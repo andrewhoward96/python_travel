@@ -1,4 +1,5 @@
 class Traveler:
-    def __init__(self, name, id=None):
+    def __init__(self, name, category, id=None):
         self.name = name
+        self.category = category
         self.id = id

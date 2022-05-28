@@ -1,3 +1,4 @@
+
 from db.run_sql import run_sql
 from models.country import Country
 from models.traveler import Traveler
@@ -9,3 +10,13 @@ def save(country):
     country.id = results[0]['id']
     return country
 
+def select_all():
+    countries = []
+
+    sql = "SELECT * FROM countries"
+    results = run_sql(sql)
+
+    for row in results:
+        country = Country(row['name'], row['category'], row['id'])
+        countries.append(country)
+    return countries
