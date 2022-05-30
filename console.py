@@ -11,3 +11,6 @@ import repositories.visit_repository as visit_repository
 # country_repository.delete_all()
 # Traveler_repository.delete_all()
 
+visit_repository.select_all()
+country_repository.select_all()
+Traveler_repository.select_all()
