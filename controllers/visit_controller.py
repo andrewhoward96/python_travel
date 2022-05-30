@@ -10,11 +10,12 @@ visits_blueprint = Blueprint("visits", __name__)
 
 @visits_blueprint.route("/visits")
 def visits():
-    visits = visit_repository.select_all()
-    return render_template("visits.html", visits=visits)
+    visits = visit_repository.select_all() 
+    return render_template("visits/index.html", visits = visits)
 
-@visits_blueprint.route("/visits/new", methods=["GET"])
-def new_visit():
+
+@visits_blueprint.route("/visits/new", methods=['GET'])
+def new_task():
     travelers = traveler_repository.select_all()
     countries = country_repository.select_all()
-    return render_template("visit/form.html", travelers=travelers, countries = countries)
+    return render_template("visits/new.html", travelers = travelers, countries = countries)

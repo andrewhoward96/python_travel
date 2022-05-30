@@ -13,5 +13,5 @@ def countries():
 @countries_blueprint.route("/countries/<id>")
 def show(id):
     country = country_repository.select(id)
-    travelers= country_repository.Travelers(country)
+    travelers= country_repository.travelers(country)
     return render_template("countries/show.html", country=country, travelers=travelers)

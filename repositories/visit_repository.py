@@ -16,7 +16,7 @@ def save(visit):
 def select_all():
     visits = []
 
-    sql = "SELECT * FROM visit"
+    sql = "SELECT * FROM visits"
     results = run_sql(sql)
 
     for row in results:

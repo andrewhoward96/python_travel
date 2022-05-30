@@ -12,7 +12,7 @@ def save(traveler):
 def select_all():
     travelers = []
 
-    sql = "SELECT * FROM traveler"
+    sql = "SELECT * FROM travelers"
     results = run_sql(sql)
     
     for row in results:

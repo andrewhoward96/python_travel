@@ -1,5 +1,7 @@
+
 from flask import Flask, render_template, request, redirect
 from flask import Blueprint
+
 from models.traveler import Traveler
 import repositories.traveler_repository as traveler_repository
 
@@ -14,4 +16,4 @@ def travelers():
 def show(id):
     traveler = traveler_repository.select(id)
     travelers = traveler_repository.travelers(traveler)
-    return render_template("travelers/show.html", traveler=traveler, travelers=travelers)
+    return render_template("travelers/show.html", traveler=traveler, travelers = travelers)

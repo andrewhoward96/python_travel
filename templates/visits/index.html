@@ -1,17 +1,25 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1>visits</h1>
+<h1>Visits</h1>
 
-<table>
-  <tr>
-    <th>Name</th>
-  
-  </tr>
+<p class="btn--wrapper">
+  <a class="btn btn--action" href="/visits/new">New visit</a>
+</p>
+
+<ul>
   {% for visit in visits %}
-  <tr>
-    <td><a href="/visits/{{ visits.id }}"> {{visits.name}} </a></td>
-  </tr>
+  <li>
+  <p>{{ visit.traveler.name }} - {{ visit.country.name }} </p>
+  <p>"<i>{{visit.review}}</i>"</p>
+    <p>
+      <form action="/visits/{{ visit.id }}/delete" method="POST">
+        <input class="btn btn--danger" type="submit" value="delete" />
+      </form>
+    </p>
+  </li>
   {% endfor %}
-</table>
+</ul>
+
+
 {% endblock %}

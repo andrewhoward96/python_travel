@@ -1,5 +1,5 @@
 class Visit:
-    def __init__(self, traveler, country, id):
-        self.traveler = traveler
-        self.country = country
+    def __init__(self, name, category, id):
+        self.name = name
+        self.category = category
         self.id = id

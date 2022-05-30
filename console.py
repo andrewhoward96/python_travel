@@ -11,5 +11,3 @@ import repositories.visit_repository as visit_repository
 # country_repository.delete_all()
 # Traveler_repository.delete_all()
 
-# traveler1 = traveler('Samwise Gamgee')
-# traveler_repository.save(traveler1)

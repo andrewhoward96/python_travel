@@ -1,16 +1,19 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1>Travelers</h1>
+<h1>travelers</h1>
 
 <table>
   <tr>
     <th>Name</th>
-  
+    <th></th>
+    <th>Category</th>
   </tr>
   {% for traveler in travelers %}
   <tr>
-    <td><a href="/travelers/{{ Travelers.id }}"> {{Travelers.name}} </a></td>
+    <td><a href="/traveler/{{ travelers.id }}"> {{traveler.name}} </a></td>
+    <td>|</td>
+    <td>{{ traveler.category }}</td>
   </tr>
   {% endfor %}
 </table>
