@@ -11,8 +11,8 @@ CREATE TABLE travelers (
 
 CREATE TABLE countries (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
-  category VARCHAR,
-  name VARCHAR
+  country VARCHAR,
+  city VARCHAR
 );
 
 
@@ -20,6 +20,7 @@ CREATE TABLE visits (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
   traveler_id INTEGER NOT NULL,
   country_id INTEGER NOT NULL,
+  status INTEGER NOT NULL,
   review TEXT,
     FOREIGN KEY (traveler_id)
       REFERENCES travelers(id) ON DELETE CASCADE,

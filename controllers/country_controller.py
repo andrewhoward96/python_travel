@@ -23,10 +23,10 @@ def show(id):
 
 # INDEX
 # GET '/tasks'
-@countries_blueprint.route("/countries")
-def countries():
-    countries = country_repository.select_all() # NEW
-    return render_template("countries/index.html", all_countries = countries)
+# @countries_blueprint.route("/countries")
+# def countries():
+#     countries = country_repository.select_all() # NEW
+#     return render_template("countries/index.html", all_countries = countries)
 
 
 # NEW

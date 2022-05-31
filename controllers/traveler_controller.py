@@ -24,16 +24,16 @@ def new_task():
 
 # INDEX
 # GET '/travelers'
-@travelers_blueprint.route("/travelers")
-def travelers():
-    travelers = traveler_repository.select_all() # NEW
-    return render_template("travelers/index.html", all_travelers = travelers)
+# @travelers_blueprint.route("/travelers")
+# def travelers():
+#     travelers = traveler_repository.select_all() # NEW
+#     return render_template("travelers/index.html", all_travelers = travelers)
 
 
 # NEW
 # GET '/tasks/new'
 @travelers_blueprint.route("/travelers/new", methods=['GET'])
-def new_task():
+def tasks_for_travelers():
     countries = country_repository.select_all()
     return render_template("travelers/new.html", countries = countries)
 

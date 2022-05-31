@@ -1,7 +1,7 @@
 class Country:
     
-    def __init__(self, name, category, id = None):
-        self.name = name
-        self.category = category
+    def __init__(self, country, city, id = None):
+        self.country = country
+        self.city = city
         self.id = id
         

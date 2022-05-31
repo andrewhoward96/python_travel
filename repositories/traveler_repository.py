@@ -10,8 +10,8 @@ import repositories.visit_repository as visit_repository
 
 
 def save(traveler):
-    sql = "INSERT INTO travelers( name, category ) VALUES ( ?,? ) RETURNING id"
-    values = [traveler.name, traveler.category]
+    sql = "INSERT INTO travelers( name) VALUES ( ? ) RETURNING id"
+    values = [traveler.name]
     results = run_sql( sql, values )
     traveler.id = results[0]['id']
     return traveler
@@ -23,7 +23,7 @@ def select_all():
     results = run_sql(sql)
     
     for row in results:
-        traveler = Traveler(row['name'], row['category'], row['id'])
+        traveler = Traveler(row['name'], row['id'])
         travelers.append(traveler)
     return travelers
 

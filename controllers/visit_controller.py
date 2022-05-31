@@ -52,10 +52,10 @@ def edit_visit(id):
 def update_visit(id):
     name = request.form['name']
     category = request.form['category']
-    duration = request.form['duration']
+    # duration = request.form['duration']
     traveler_id = bool(int(request.form['traveler_id']))
     traveler = traveler_repository.select(category)  
-    visit =visit(name, traveler, traveler_id, id)
+    visit = Visit(name, traveler, traveler_id, id)
 
     visit_repository.update(visit)
     return redirect('/visits')
