@@ -1,6 +1,7 @@
 
 from db.run_sql import run_sql
 from models.visit import Visit
+
 import repositories.traveler_repository as traveler_repository
 import repositories.country_repository as country_repository
 import repositories.visit_repository as visit_repository
@@ -23,7 +24,7 @@ def select_all():
     for row in results:
         traveler = traveler_repository.select(row['traveler_id'])
         country = country_repository.select(row['country_id'])
-        status = "Wanted" if row['status'] == 0 else "visited"
+        status = "wanted to visit" if row['status'] == 0 else "visited"
         visit = Visit(status, traveler, country ,row['id'])
         visits.append(visit)
     return visits

@@ -21,14 +21,6 @@ def new_task():
     countries = country_repository.select_all()
     return render_template("travelers/show.html", travelers = travelers, countries = countries)
 
-# RESTful CRUD Routes
-
-# INDEX
-# GET '/travelers'
-# @travelers_blueprint.route("/travelers")
-# def travelers():
-#     travelers = traveler_repository.select_all() # NEW
-#     return render_template("travelers/index.html", all_travelers = travelers)
 
 
 # NEW
@@ -59,7 +51,7 @@ def show_task(id):
 
 # EDIT
 # GET '/tasks/<id>/edit'
-# @travelers_blueprint.route("/travelers/<id>/edit", methods=['GET'])
+
 def edit_task(id):
     traveler = traveler_repository.select(id)
     countries = country_repository.select_all()
@@ -67,7 +59,19 @@ def edit_task(id):
 
 # UPDATE
 # PUT '/tasks/<id>'
-# @travelers_blueprint.route("/travelers/<id>", methods=['POST'])
+@travelers_blueprint.route("/travelers/<id>", methods=['PUT'])
+def update_task(id):
+    name = request.form['name']
+    country = request.form['country']
+    traveler = Traveler(name, country, id)
+
+    traveler_repository.update(traveler)
+    return redirect("/travelers")
 
 # DELETE
 # DELETE '/tasks/<id>'
+@travelers_blueprint.route("/travelers/<id>/delete", methods=['POST'])
+def delete_task(id):
+    traveler_repository.delete(id)
+    return redirect("/travelers")
+    

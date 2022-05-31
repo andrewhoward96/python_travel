@@ -1,7 +1,7 @@
 
 from flask import Flask, render_template, request, redirect
 from flask import Blueprint
-# from controllers.country_controller import countries
+
 from models.visit import Visit
 
 import repositories.visit_repository as visit_repository
@@ -56,7 +56,6 @@ def edit_visit(id):
 def update_visit(id):
     name = request.form['name']
     category = request.form['category']
-    # duration = request.form['duration']
     traveler_id = bool(int(request.form['traveler_id']))
     traveler = traveler_repository.select(category)  
     visit = Visit(name, traveler, traveler_id, id)

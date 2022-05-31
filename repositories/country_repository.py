@@ -1,6 +1,5 @@
 
-# from lib2to3.pytree import _Results
-# from unittest import result
+
 from db.run_sql import run_sql
 from models.country import Country
 from models.traveler import Traveler

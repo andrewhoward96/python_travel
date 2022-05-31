@@ -3,8 +3,6 @@
 {% block content %}
 <h1>travelers</h1>
 
-<!-- <p class="btn--wrapper">
-  <a class="btn btn--action" href="/travelers/show">Show traveler</a> -->
 
 <table>
   <tr>
@@ -14,7 +12,7 @@
   {% for traveler in travelers %}
   <tr>
     <td><a href="/travelers/{{ traveler.id }}"> {{traveler.name}} </a></td>
-    <td>|</td>
+    
   </tr>
   {% endfor %}
 </table>
