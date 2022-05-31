@@ -8,8 +8,8 @@ import repositories.visit_repository as visit_repository
 
 
 def save(visit):
-    sql = "INSERT INTO visits ( traveler_id, country_id, visit_id) VALUES ( ?, ?, ?) RETURNING id"
-    values = [visit.traveler.id, visit.country.id, visit.id]
+    sql = "INSERT INTO visits ( traveler_id, country_id, id,status) VALUES ( ?, ?, ?,?) RETURNING id"
+    values = [visit.traveler.id, visit.country.id, visit.id,visit.status]
     results = run_sql( sql, values )
     visit.id = results[0]['id']
     return visit
@@ -21,7 +21,10 @@ def select_all():
     results = run_sql(sql)
 
     for row in results:
-        visit = Visit(row['name'], row['category'], row['id'])
+        traveler = traveler_repository.select(row['traveler_id'])
+        country = country_repository.select(row['country_id'])
+        status = "Wanted" if row['status'] == 0 else "visited"
+        visit = Visit(status, traveler, country ,row['id'])
         visits.append(visit)
     return visits
 
@@ -32,6 +35,8 @@ def select(id):
     result = run_sql(sql, values)[0]
 
     if result is not None:
+
+        
         completed = True if result['completed'] == 1 else False
         traveler = traveler_repository.select(result['traveler_id'])
         visit = visit(result['description'], traveler, result['duration'], completed, result['id'] )

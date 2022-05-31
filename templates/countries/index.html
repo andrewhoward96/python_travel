@@ -3,20 +3,19 @@
 {% block content %}
 <h1>Countries</h1>
 
-<p class="btn--wrapper">
-  <a class="btn btn--action" href="/countries/show">Show countries</a>
+
 
 <table>
   <tr>
-    <th>Name</th>
+    <th>Country</th>
     <th></th>
-    <th>Category</th>
+    <th>Citys</th>
   </tr>
   {% for country in countries %}
   <tr>
-    <td><a href="/countries/{{ countries.id }}"> {{country.name}} </a></td>
+    <td><a href="/countries/{{ country.id }}"> {{country.country}} </a><a>{{country.city}}</a></td>
     <td>|</td>
-    <td>{{ country.category }}</td>
+    
   </tr>
   {% endfor %}
 </table>

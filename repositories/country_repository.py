@@ -1,4 +1,6 @@
 
+# from lib2to3.pytree import _Results
+# from unittest import result
 from db.run_sql import run_sql
 from models.country import Country
 from models.traveler import Traveler
@@ -25,3 +27,29 @@ def select_all():
         country = Country(row['country'], row['city'], row['id'])
         countries.append(country)
     return countries
+
+def delete_all():
+    sql = "DELETE FROM countries"
+    run_sql(sql)
+
+def select(id):
+    location = None
+    sql = "SELECT * FROM countries WHERE id = ?"
+    values = [id]
+    result = run_sql(sql, values)[0]
+
+    if result is not None:
+        location = Country(result['country'], result['city'], result['id'])
+    return location
+
+def travelers(country):
+    travelers = []
+    sql = "SELECT travelers.* FROM travelers INNER JOIN visits ON travelers.id = visits.traveler_id WHERE country_id = ? "
+    values = [country.id]
+    results = run_sql(sql, values)
+
+    for row in results:
+        traveler = Traveler(row['name'], ['id'])
+        travelers.append(traveler)
+    return travelers
+    

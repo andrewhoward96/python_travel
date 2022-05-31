@@ -1,3 +1,4 @@
+from unittest import result
 from db.run_sql import run_sql
 from models.country import Country
 from models.traveler import Traveler
@@ -27,7 +28,31 @@ def select_all():
         travelers.append(traveler)
     return travelers
 
+def delete_all():
+    sql = "DELETE FROM travelers"
+    run_sql(sql)
+
+def locations(traveler):
+    locations = []
+    sql = "SELECT countries.* from countries INNER JOIN visits ON countries.id=visits.country_id WHERE traveler_id = ?"
+    values = [traveler.id]
+    results = run_sql(sql, values)
+
+    for row in results:
+        location = Country(row['country'], row['city'], row['id'])
+        locations.append(location)
+
+    return locations
 
 
+def select(id):
+    traveler = None
+    sql = "SELECT * FROM travelers WHERE id = ?"
+    values = [id]
+    results = run_sql(sql, values)[0]
+  
+    if results is not None:
+        traveler = Traveler(results['name'], results['id'])
+    return traveler
 
 

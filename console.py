@@ -1,4 +1,4 @@
-from itertools import count
+
 import pdb
 from models.country import Country
 from models.traveler import Traveler
@@ -8,9 +8,9 @@ import repositories.country_repository as country_repository
 import repositories.traveler_repository as Traveler_repository
 import repositories.visit_repository as visit_repository
 
-# visit_repository.delete_all()
-# country_repository.delete_all()
-# Traveler_repository.delete_all()
+visit_repository.delete_all()
+country_repository.delete_all()
+Traveler_repository.delete_all()
 
 visit_repository.select_all()
 country_repository.select_all()
@@ -27,3 +27,10 @@ country_repository.save(country1)
 
 country2 = Country('Germany','Berlin')
 country_repository.save(country2)
+
+
+visit1 = Visit(1,traveler1,country1)
+visit_repository.save(visit1)
+
+visit2 = Visit(0,traveler2,country1)
+visit_repository.save(visit2)

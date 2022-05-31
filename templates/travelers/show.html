@@ -1,12 +1,12 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1> {{travelers.name}} </h1>
+<h1> {{traveler.name}} </h1>
 
 <h3>Visited:</h3>
 <ul>
     {% for country in countries %}
-    <li>{{country.name}}</li>
+    <li>{{country.city}}</li>
     {% endfor %}
 </ul>
 {% endblock %}

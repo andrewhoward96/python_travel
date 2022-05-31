@@ -3,20 +3,18 @@
 {% block content %}
 <h1>travelers</h1>
 
-<p class="btn--wrapper">
-  <a class="btn btn--action" href="/travelers/show">Show traveler</a>
+<!-- <p class="btn--wrapper">
+  <a class="btn btn--action" href="/travelers/show">Show traveler</a> -->
 
 <table>
   <tr>
     <th>Name</th>
     <th></th>
-    <th>Category</th>
   </tr>
   {% for traveler in travelers %}
   <tr>
-    <td><a href="/traveler/{{ travelers.id }}"> {{traveler.name}} </a></td>
+    <td><a href="/travelers/{{ traveler.id }}"> {{traveler.name}} </a></td>
     <td>|</td>
-    <td>{{ traveler.category }}</td>
   </tr>
   {% endfor %}
 </table>

@@ -1,6 +1,7 @@
 
 from flask import Flask, render_template, request, redirect
 from flask import Blueprint
+from models.country import Country
 from models.traveler import Traveler
 import repositories.visit_repository as visit_repository
 import repositories.traveler_repository as traveler_repository
@@ -52,14 +53,21 @@ def create_task():
 @travelers_blueprint.route("/travelers/<id>", methods=['GET'])
 def show_task(id):
     traveler = traveler_repository.select(id)
-    return render_template("travelers/show.html", traveler = traveler)
+    country = traveler_repository.locations(traveler)
+    return render_template("travelers/show.html", traveler = traveler, countries = country)
     
 
 # EDIT
 # GET '/tasks/<id>/edit'
+# @travelers_blueprint.route("/travelers/<id>/edit", methods=['GET'])
+def edit_task(id):
+    traveler = traveler_repository.select(id)
+    countries = country_repository.select_all()
+    return render_template("travelers/edit.html", traveler = traveler, countries = countries)
 
 # UPDATE
 # PUT '/tasks/<id>'
+# @travelers_blueprint.route("/travelers/<id>", methods=['POST'])
 
 # DELETE
 # DELETE '/tasks/<id>'
