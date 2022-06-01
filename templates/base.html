@@ -20,10 +20,13 @@
 <main class="flex flex--row">
 
 
-
+<header>
 <div class="menu">
   <nav>
     <ul>
+      <li>
+        <a href="/">Home</a>
+      </li>
       <li>
         <a id="ds" href="/countries">countries</a>
       </li>
@@ -33,23 +36,24 @@
       <li>
         <a id="ds" href="/visits">Visits</a>
       </li>
+        <li>
+    <a href="/countries/new">New Country</a>
+      </li>
       <li>
-        <a href="/Home"></a>
+        <h1>Fast Travel</h1>
+      </li>
+      <li>
+        <a href="Andrew Howard">Andrew Howard</a>
+      </li>
+      <li>
+        <a href="Sign Out">Sign Out</a>
       </li>
     </ul>
   </nav>
 </div>
+</header>
 <div class="logo">
-  <ul>
-    <li>
-      <a id= "logo"> Fast Travel</a>
-    </li>
-  </ul>
 </div>
-<div id="footer">This is a footer.
-  This stays at the bottom of the page.
-</div>
-
   <section id="content">
       {% block content %}
 
@@ -57,4 +61,9 @@
   </section>
   </main>
 </body>
+<footer>
+  <div>
+    <p> This is a footer. This stays at the bottom of the page. </p>
+  </div>
+</footer>
 </html>

@@ -34,8 +34,8 @@ def new():
 # POST '/tasks'
 @countries_blueprint.route("/countries", methods=['POST'])
 def create():
-    country = Country(request.form['name'])
-    country_repository.insert(country)
+    country = Country(request.form['country'], request.form['city'])
+    country_repository.save(country)
     return redirect("/countries")
 
 
@@ -52,16 +52,17 @@ def edit(id):
 
 # UPDATE
 # PUT '/tasks/<id>'
-@countries_blueprint.route("/countries/<id>", methods=['PUT'])
+@countries_blueprint.route("/countries/<id>", methods=['POST'])
 def update(id):
-    country = Country(request.form['name'])
+    country = Country(request.form['country'],request.form['city'],id)
     country_repository.update(country)
     return redirect("/countries")
 
 
 # DELETE
 # DELETE '/tasks/<id>'
-@countries_blueprint.route("/countries/<id>", methods=['DELETE'])
+@countries_blueprint.route("/countries/<id>/delete", methods=['GET'])
 def destroy(id):
     country_repository.delete(id)
     return redirect("/countries")
+

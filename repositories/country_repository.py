@@ -51,4 +51,14 @@ def travelers(country):
         traveler = Traveler(row['name'], ['id'])
         travelers.append(traveler)
     return travelers
+
+def update(country):
+    sql = "UPDATE countries SET (country, city) = (?,?) WHERE id = ?"
+    values = [country.country, country.city, country.id]
+    run_sql(sql, values)
+
+def delete(id):
+    sql = "DELETE FROM countries WHERE id = ?"
+    values = [id]
+    run_sql(sql, values)
     

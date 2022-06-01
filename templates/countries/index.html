@@ -14,9 +14,13 @@
   {% for country in countries %}
   <tr>
     <td><a href="/countries/{{ country.id }}"> {{country.country}} </a>
-      <a>{{country.city}}</a></td>
+      
+      <a>{{country.city}}</a>
+      <a href="/countries/{{country.id}}/edit">Edit</a>
+      <a href="/countries/{{country.id}}/delete">delete</a>
+    </td>
     
-    
+      
   </tr>
   {% endfor %}
 </table>
